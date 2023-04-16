@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# React Auto-Complete
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a simple React-based application that features an auto-complete component. The auto-complete component provides a user-friendly search interface that displays suggestions based on the user's input and stores recent searches.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+1. [Features](#features)
+2. [Technical Overview](#technical-overview)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Component Structure](#component-structure)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Auto-complete suggestions based on user input.
+- Stores recent searches in local storage.
+- Displays top matches for the user's search query.
+- Easy integration with other React applications.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technical Overview
+- **React**: The project uses React, a popular JavaScript library for building user interfaces, as its primary technology. React allows for the creation of reusable components and a more maintainable codebase.
+- **State Management**: The component utilizes the **`useState`** and **`useEffect`** hooks for managing the internal state and side effects, such as local storage updates and handling clicks outside the component.
+- **CSS Modules**: The project uses CSS modules to create isolated styles for each component, preventing any unwanted side effects on other components or global styles.
+- **Local Storage**: The component stores recent searches in the browser's local storage, providing persistence across sessions and allowing users to view their recent searches even after closing and reopening the application.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository using the following command:
 
-### `npm run build`
+```
+    git clone https://github.com/anand-bhagat/auto-complete.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navigate to the project directory and install the required dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+    cd auto-complete
+    npm install
+```
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To start the development server, run:
+```
+    npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The auto-complete component can be easily integrated into other React applications by importing and using it in your desired component.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+import AutoComplete from './AutoComplete';
 
-## Learn More
+function App() {
+  // ...
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  return (
+    <div>
+      {/* Other components */}
+      <AutoComplete data={data} setFilteredData={setFilteredData} setSearchValue={setSearchValue} />
+    </div>
+  );
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Component Structure
+The `AutoComplete` component consists of the following:
 
-### Code Splitting
+- An input field for the user to type their search query.
+- A drop-down list that displays recent searches or top matches based on the user's input.
+- A search button that filters the data based on the user's input.
+- A clear button that resets the search input and displays the original data.
+The component maintains the state of the user's input, recent searches, and the visibility of the drop-down list. It also handles user interactions, such as clicking outside the drop-down list, pressing the enter key, and selecting a recent search or top match from the list.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
